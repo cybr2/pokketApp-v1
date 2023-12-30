@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     },
     progress: {
         height: '100%',
-        backgroundColor: '#2f80ed',
+        backgroundColor: '#F03E3E',
     },
     progressText: {
         marginTop: 10,

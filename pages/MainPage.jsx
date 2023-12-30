@@ -1,19 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React,{ useEffect } from 'react'
+import React from 'react'
 import SplashScreen from '../screens/SplashScreen'
-import { loadingStore } from '../stores/store'
+import { loadingStore, themeStore } from '../stores/store'
 import HomePage from './HomePage'
+import { light, dark } from '../theme/theme'
 
 const MainPage = () => {
   const { isLoading} = loadingStore();
+  const { darkMode } = themeStore();
+
+  let theme = (darkMode === true) ? dark : light;
 
   return (
-    <View>
-    {isLoading ? <SplashScreen/> : <HomePage/>}
-    </View>
+    <View className ={`${theme} h-screen w-screen`}>
+      {isLoading ? <SplashScreen/> : <HomePage/>}
+    </View>  
   )
 }
 
 export default MainPage
 
-const styles = StyleSheet.create({})

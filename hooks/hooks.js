@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { loadingStore, loopStore, progressStore } from '../stores/store';
+import { loadingStore, loopStore, progressStore, themeStore } from '../stores/store';
+import { EventRegister } from 'react-native-event-listeners';
 
 const useSplashScreen = () => {
     const { isProgress, setIsProgress } = progressStore();
@@ -33,12 +34,24 @@ const useProgressBar = ( progressIncrement,intervalTime ) => {
         const interval = setInterval(() => {
           ( progress < 1 ) ? ( setProgress(progressIncrement) ) : ( clearInterval(interval), setIsLoop(false)  )
         }, intervalTime);
-        console.log(typeof(progress))
         return ()=>clearInterval(interval);
       },[progress, setProgress]);
 }
 
+const useThemeMode = () => {
+    const { darkMode, setDarkMode } = themeStore();
+
+    useEffect(()=>{
+        const listener = EventRegister.addEventListener('ChangeTheme', (data)=>{
+            setDarkMode(data)
+            console.log(data)
+        })
+        return ()=> EventRegister.removeAllListeners(listener)
+    },[darkMode])
+}
+
 export {
     useSplashScreen,
-    useProgressBar
+    useProgressBar,
+    useThemeMode
 }

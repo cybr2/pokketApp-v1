@@ -19,9 +19,31 @@ const progressStore = create((set) => ({
   },
 }));
 
+const themeStore = create((set)=>({
+  darkMode : false,
+  setDarkMode : () => set((state)=>({darkMode : !state.darkMode}))
+}))
+
+const  themeModeStore = create((set)=> ({
+  theme: {
+    light: {
+      theme: 'light',
+      color: 'black',
+      background: 'white',
+    },
+    dark: {
+      theme: 'dark',
+      color: 'white',
+      background: 'black',
+    },
+  },
+}))
+
 
 export {
     loadingStore,
     loopStore,
     progressStore,
+    themeStore,
+    themeModeStore,
 }

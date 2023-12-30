@@ -23,5 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 0,
     gap: 100,
+    backgroundColor : 'white'
   },
 })
