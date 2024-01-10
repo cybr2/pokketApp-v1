@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 import SplashScreen from '../screens/SplashScreen'
 import { loadingStore, themeStore } from '../stores/store'
 import HomePage from './HomePage'
 import { light, dark } from '../theme/theme'
+import NavigationPage from './NavigationPage'
 
 const MainPage = () => {
   const { isLoading} = loadingStore();
@@ -13,7 +14,7 @@ const MainPage = () => {
 
   return (
     <View className ={`${theme} h-screen w-screen`}>
-      {isLoading ? <SplashScreen/> : <HomePage/>}
+      {isLoading ? <SplashScreen/> : <NavigationPage/>}
     </View>  
   )
 }

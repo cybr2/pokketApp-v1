@@ -9,6 +9,7 @@ import { AboutIcon, HomeIcon, FavIcon } from '../assets/png';
 import BtnNavIcon from '../components/BtnNavIcon';
 import { themeStore } from '../stores/store';
 import { light, dark } from '../theme/theme'
+import FeaturedPage from './FeaturedPage';
 
 
 const Tab = createBottomTabNavigator();
@@ -16,35 +17,7 @@ const Tab = createBottomTabNavigator();
 
 
 const HomePage = () => {
-  const { darkMode } = themeStore()
-
-  const customLightTheme = {
-    ...DefaultTheme, 
-    colors: {
-      ...DefaultTheme.colors,
-      primary: 'blue', 
-      background: 'white',
-      text: 'black',
-      border: 'transparent',
-      card: 'white',
-    },
-  };
-
-  const customDarkTheme = {
-    ...DarkTheme, 
-    colors: {
-      ...DarkTheme.colors,
-      primary: 'cyan',
-      background: '#272727',
-      text: 'white',
-      border: 'transparent',
-      card: '#272727',
-    },
-  };
-         
-  const selectedTheme = darkMode ? customDarkTheme : customLightTheme;
   return (
-    <NavigationContainer theme={selectedTheme}>
       <Tab.Navigator
         initialRouteName='Home'
         screenOptions={{
@@ -56,6 +29,7 @@ const HomePage = () => {
           name='About' 
           component={AboutScreen} 
           options={{
+            headerShown: false,
             title : '',
             tabBarIcon : () => (
               <BtnNavIcon height={30} width={30} src={AboutIcon}/>
@@ -66,6 +40,7 @@ const HomePage = () => {
           name='Home' 
           component={HomeScreen} 
           options={{
+            headerShown: false,
             title : '',
             tabBarIcon : () => (
               <BtnNavIcon height={35} width={35} src={HomeIcon}/>
@@ -76,6 +51,7 @@ const HomePage = () => {
           name='Favorite' 
           component={FavoriteScreen} 
           options={{
+            headerShown: false,
             title : '',
             tabBarIcon : () => (
               <BtnNavIcon height={30} width={30} src={FavIcon}/>
@@ -83,7 +59,6 @@ const HomePage = () => {
           }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
   )
 }
 
@@ -103,6 +78,6 @@ const styles = StyleSheet.create({
     height: 80, 
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50 , 
-    backgroundColor: '#D9D9D9'
+    backgroundColor: '#f4f2f0'
   }
 })

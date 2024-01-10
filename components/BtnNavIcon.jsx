@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Image, } from 'react-native'
 import React from 'react'
 import { HomeIcon } from '../assets/png'
 
@@ -12,9 +12,9 @@ const BtnNavIcon = ({...props}) => {
     }
 })
   return (
-    <Image 
-        style={styles.tinyIcon}
-        source={props.src}/>
+      <Image 
+          style={styles.tinyIcon}
+          source={props.src}/>
   )
 }
 

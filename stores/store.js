@@ -3,12 +3,12 @@ import { create } from 'zustand'
 const loadingStore = create((set) => ({
     isLoading : true,
     setIsLoading : (item) => set(() => ({ isLoading : item})),
-  }))
+  }));
 
 const loopStore = create((set) => ({
   isLoop : true,
   setIsLoop : (item) => set(() => ({ isLoop : item})),
-}))
+}));
 
 const progressStore = create((set) => ({
   progress: 0,
@@ -22,7 +22,7 @@ const progressStore = create((set) => ({
 const themeStore = create((set)=>({
   darkMode : false,
   setDarkMode : () => set((state)=>({darkMode : !state.darkMode}))
-}))
+}));
 
 const  themeModeStore = create((set)=> ({
   theme: {
@@ -37,6 +37,37 @@ const  themeModeStore = create((set)=> ({
       background: 'black',
     },
   },
+}));
+
+const pokemonStore = create((set) =>({
+  pokeData : [],
+  setPokeData : (newData) => set((state) => ({ pokeData : [...state.pokeData, ...newData]
+  })),
+}));
+
+const itemStore = create((set) =>({
+  itemData : [],
+  setItemData: (newData) =>
+    set((state) => ({
+      itemData: [...state.itemData, ...newData]
+    })),
+}));
+
+const itemDetailStore = create((set) =>({
+  asset : [],
+  setAsset :  (newAsset) => set(() => ({ asset : newAsset}))
+}));
+
+const imageStore = create ((set) => ({
+  imgUrl : null,
+  setImgUrl : (newUrl) => set(() => ({ imgUrl : newUrl}))
+}))
+
+const typeStore = create ((set) => ({
+  typeData : [],
+  setTypeData : (newData) => set((state) => ({
+    typeData : [...state.typeData, ...newData]
+  }))
 }))
 
 
@@ -46,4 +77,9 @@ export {
     progressStore,
     themeStore,
     themeModeStore,
+    pokemonStore,
+    itemStore,
+    itemDetailStore,
+    imageStore,
+    typeStore
 }

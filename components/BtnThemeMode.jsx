@@ -5,8 +5,6 @@ import { themeStore } from '../stores/store';
 const BtnThemeMode = () => {
   const { darkMode, setDarkMode} = themeStore();
 
-  console.log(darkMode)
-
   return (
     <Switch
         trackColor={{false: '#767577', true: '#81b0ff'}}
@@ -14,7 +12,7 @@ const BtnThemeMode = () => {
         ios_backgroundColor="#3e3e3e"
         onValueChange={setDarkMode}
         value={darkMode}
-      />
+    />
   )
 }
 
